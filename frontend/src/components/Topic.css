@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+}
+
+.topic-page {
+    padding: 20px;
+    background-color: #f0f2f5;
+    min-height: 100vh;
+    position: relative;
+}
+
+.logout-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: black;
+}
+
+
+.topic-title {
+    margin-bottom: 20px;
+    color: #1a1a1a;
+    font-family: 'Arial, sans-serif';
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 10px;
+    display: inline-block;
+}
+
+.topic-card {
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.topic-card:hover {
+    background-color: rgba(230, 230, 230, 0.9);
+}
+
+.topic-description {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #1890ff;
+}

@@ -1,0 +1,315 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.chat-container {
+    display: flex;
+    height: 100vh;
+    background-color: #f0f2f5;
+    position: relative;
+}
+
+.back-button-icon {
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    color: black;
+    z-index: 10;
+}
+
+.logout-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+}
+
+.users-list {
+    background-color: rgba(240, 242, 245, 0.9);
+    padding: 20px;
+    overflow-y: auto;
+    border-right: 1px solid #91d5ff;
+    width: 25%;
+    max-width: 25%;
+    scrollbar-width: thin;
+    scrollbar-color: #91d5ff rgba(240, 242, 245, 0.9);
+    padding-top: 40px;
+}
+
+.users-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.users-list::-webkit-scrollbar-track {
+    background: rgba(240, 242, 245, 0.9);
+}
+
+.users-list::-webkit-scrollbar-thumb {
+    background-color: #91d5ff;
+    border-radius: 10px;
+    border: 3px solid rgba(240, 242, 245, 0.9);
+}
+
+.badge-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #3e4a61;
+    text-align: center;
+    /*background-color: rgba(230, 247, 255, 0.9);
+    border: 2px solid #91d5ff;
+    border-radius: 5px;*/
+    padding: 10px;
+}
+
+.chat-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    border-left: 1px solid #91d5ff;
+    background-color: #ffffff;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+   /* background-color: #3e4a61;*/
+    padding: 10px;
+    border-radius: 5px;
+    color: #3e4a61;
+    position: relative;
+}
+
+.chat-header h2 {
+    font-weight: bold;
+}
+
+.participation-count {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #1a1a1a;
+}
+
+.participants-button {
+    color: #fff;
+    background-color: #5960c6;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #f0f2f5;
+    scrollbar-width: thin;
+    scrollbar-color: #91d5ff rgba(240, 242, 245, 0.9);
+}
+
+.chat-messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+    background: rgba(240, 242, 245, 0.9);
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background-color: #91d5ff;
+    border-radius: 10px;
+    border: 3px solid rgba(240, 242, 245, 0.9);
+}
+
+.chat-message {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.chat-message-sent {
+    align-items: flex-end;
+}
+
+.chat-message-received {
+    align-items: flex-start;
+}
+
+.chat-message-sender {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #1a1a1a;
+}
+
+.chat-message-content {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.chat-message-sent .chat-message-content {
+    color: #1a1a1a;
+    background-color: #d1ecf1;
+}
+
+.chat-message-received .chat-message-content {
+    color: #1a1a1a;
+    border-color: #721c24;
+    background-color: #f8d7da;
+}
+
+.chat-message-warning {
+    color: #721c24;
+}
+
+.chat-input-container {
+    display: flex;
+    margin-top: 10px;
+}
+
+.chat-input {
+    flex-grow: 1;
+    height: 60px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: #f0f8ff;
+    color: #1a1a1a;
+    resize: none;
+}
+
+.chat-send-button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #646cff;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.chat-send-button:hover {
+    background-color: #4754d6;
+}
+
+.not-participated-users {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.not-participated-user {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    /*background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+    width: calc(50% - 20px);
+    text-align: center;
+}
+
+.user-avatar {
+    margin-bottom: 3px;
+}
+
+.not-participated-user div {
+    margin-left: 10px;
+    color: #1890ff;
+    font-weight: bold;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .chat-container {
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    .users-list {
+        width: 100%;
+        max-width: 100%;
+        order: 2;
+        border-right: none;
+        border-top: 1px solid #91d5ff;
+        max-height: 150px;
+        overflow-y: auto;
+    }
+
+    .chat-content {
+        width: 100%;
+        order: 1;
+        padding: 10px;
+        overflow-y: auto;
+        flex-grow: 1;
+        max-height: calc(100vh - 150px);
+    }
+
+    .chat-header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background-color: transparent;
+        width: 100%;
+        position: relative;
+    }
+
+    .chat-header h2 {
+        display: none;
+    }
+
+    .badge-title {
+        display: none;
+    }
+
+    .participation-count {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 60px;
+    }
+
+    .chat-input-container {
+        flex-direction: column;
+    }
+
+    .chat-input {
+        margin: 10px;
+    }
+
+    .chat-send-button {
+        width: 95%;
+    }
+
+    .not-participated-user {
+        display: flex;
+        flex-direction: row; /* Para que los elementos aparezcan en una fila */
+        overflow-x: auto;
+    }
+
+    .back-button-icon {
+        display: block; /* Asegura que se muestre en móviles */
+        top: 10px;
+        left: 10px;
+        position: fixed;
+    }
+
+    .logout-button {
+        display: block; /* Asegura que se muestre en móviles */
+        top: 10px;
+        right: 10px;
+        position: fixed;
+    }
+}
