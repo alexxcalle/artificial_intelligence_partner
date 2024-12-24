@@ -2,7 +2,6 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function main() {
-
   // Creating a user
   const user = await prisma.user.create({
     data: {
@@ -24,56 +23,58 @@ async function main() {
       name: 'Sudamericano',
       description: 'A tecnologic in Ecuador',
       type: 'SuperiorTechnologic',
-    } });
+    },
+  });
 
-    // Creating a career
-    const career = await prisma.career.create({
-      data: {
-        name: 'Software Development',
-        description: 'A career for software development',
-        type: 'Engineering',
-      },
-    });
+  // Creating a career
+  const career = await prisma.career.create({
+    data: {
+      name: 'Software Development',
+      description: 'A career for software development',
+      type: 'Engineering',
+    },
+  });
 
-    // Creating user to institution
-    await prisma.userInstitution.create({
-      data: {
-        userId: user.id,
-        institutionId: institution.id,
-      },
-    });
+  // Creating user to institution
+  await prisma.userInstitution.create({
+    data: {
+      userId: user.id,
+      institutionId: institution.id,
+    },
+  });
 
-    //creating user to career
-    await prisma.userCareer.create({
-      data: {
-        userId: user.id,
-        careerId: career.id,
-      },
-    });
+  //creating user to career
+  await prisma.userCareer.create({
+    data: {
+      userId: user.id,
+      careerId: career.id,
+    },
+  });
 
-    //creating institution to career
-    await prisma.institutionCareer.create({
-      data: {
-        institutionId: institution.id,
-        careerId: career.id,
-      },
-    });
+  //creating institution to career
+  await prisma.institutionCareer.create({
+    data: {
+      institutionId: institution.id,
+      careerId: career.id,
+    },
+  });
 
-    //creating permission
-    const permission = await prisma.permission.create({
-      data: {
-        permissionName: 'create',
-      },
-    });
-    
-      // creating FocusScoreFormula
-      const focusScoreFormula = await prisma.focusScoreFormula.create({
-        data: {
-        name: 'test',
-        formula: 'a*2=3'
-    }});
+  //creating permission
+  const permission = await prisma.permission.create({
+    data: {
+      permissionName: 'create',
+    },
+  });
 
-     // Creating a room
+  // creating FocusScoreFormula
+  const focusScoreFormula = await prisma.focusScoreFormula.create({
+    data: {
+      name: 'test',
+      formula: 'a*2=3',
+    },
+  });
+
+  // Creating a room
   const room = await prisma.room.create({
     data: {
       title: 'Software Development Basics',
@@ -84,14 +85,14 @@ async function main() {
     },
   });
 
-    //creating a role
-    const teacherRole = await prisma.role.create({
-      data: {
-        roleName: 'Teacher',
-      },
-    });
+  //creating a role
+  const teacherRole = await prisma.role.create({
+    data: {
+      roleName: 'Teacher',
+    },
+  });
 
-    // Creating a topic
+  // Creating a topic
   const topic = await prisma.topic.create({
     data: {
       title: 'Introduction to Programming',
@@ -100,29 +101,28 @@ async function main() {
     },
   });
 
-    //creating role to permission
-    await prisma.rolePermission.create({
-      data: {
-        roleId: teacherRole.id,
-        permissionId: permission.id,
-      },
-    });
+  //creating role to permission
+  await prisma.rolePermission.create({
+    data: {
+      roleId: teacherRole.id,
+      permissionId: permission.id,
+    },
+  });
 
-    //creating user to role
-    await prisma.userRole.create({
-      data: {
-        userId: user.id,
-        roleId: teacherRole.id,
-      },
-    });
-
+  //creating user to role
+  await prisma.userRole.create({
+    data: {
+      userId: user.id,
+      roleId: teacherRole.id,
+    },
+  });
 
   //creating Room to role
-    const roomRole = await prisma.roomRole.create({
-        data: {
-        roleName: "teacher",
-        },
-    });
+  const roomRole = await prisma.roomRole.create({
+    data: {
+      roleName: 'teacher',
+    },
+  });
 
   // Linking user to room
   await prisma.userRoom.create({
@@ -140,7 +140,6 @@ async function main() {
       topicId: topic.id,
     },
   });
-
 }
 
 main()
